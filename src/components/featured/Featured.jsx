@@ -4,23 +4,24 @@ import { useFetch } from '../../hooks/useFetch'
 const Featured = () => {
 
     const url = "https://fakestoreapi.com/products?limit=5"
-    const {data,loading,error} = useFetch(url) // Calling the custom hook,
-  return (
-    // show the result the UI
-    <div>
-        {error ?
-        <p>Something is wrong</p> 
-        : loading ? 
-        <p>Loading...</p>
-        :
-        <ul>
-            {
-                data && data.map(val=><li>{val.title}</li>)
+    const { data, loading, error } = useFetch(url) // Calling the custom hook,
+    return (
+        // show the result the UI
+        <div className='container my-3'>
+            <h2>Featured products</h2>
+            {error ?
+                <p>Something is wrong</p>
+                : loading ?
+                    <p>Loading...</p>
+                    :
+                    <ul>
+                        {
+                            data && data.map(val => <li>{val.title}</li>)
+                        }
+                    </ul>
             }
-        </ul>   
-    }
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Featured
