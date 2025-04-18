@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext, useReducer } from "react";
 
 const CartContext = createContext();
 
@@ -73,8 +73,21 @@ const CartProvider = ({ children }) => {
         }
 
     }
-    return state
+    const [state,dispatch] = useReducer(cartReducer, initialState)
+
+
+return <CartContext.Provider value={{state,dispatch}}> {children} </CartContext.Provider>
 
 }
 
-export { CartProvider }
+const useCart = () => {
+    const context = useContext(CartContext);
+    if (!context){
+        throw new Error('useCart must be used within a Cart Provider')
+    }
+    return context
+}
+
+
+
+export { CartProvider, useCart }
