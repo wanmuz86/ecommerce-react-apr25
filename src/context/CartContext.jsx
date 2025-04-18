@@ -74,8 +74,13 @@ const CartProvider = ({ children }) => {
     // State to retrieve the state, dispatch to perform an action on the state
     const [state, dispatch] = useReducer(cartReducer, initialState)
 
+    // Perform an operation on a state, and return it to the compoenent - Derived state
+    const totalItemInCart = state.cart.reduce( (acc,val) => acc+val.quantity ) 
+    const totalCartPrice = state.cart.reduce((acc,val)=> acc+ val.item.price * val.quantity)
 
-    return <CartContext.Provider value={{ state, dispatch }}> {children} </CartContext.Provider>
+
+    return <CartContext.Provider value={{ state, dispatch , totalItemInCart, totalCartPrice}}>
+         {children} </CartContext.Provider>
 
 }
 
