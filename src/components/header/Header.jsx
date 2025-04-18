@@ -37,7 +37,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className="d-flex">
-                        <NavLink className='me-2 btn btn-outline-light' to="/cart"><i class="bi bi-cart"></i> ( 0 )</NavLink>
+                        <NavLink className='me-2 btn btn-outline-light' to="/cart"><i className="bi bi-cart"></i> ( 0 )</NavLink>
                     </div>
                 </div>
             </nav>
