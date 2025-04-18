@@ -11,6 +11,9 @@ const Cart = () => {
       <h2>Your Cart</h2>
       <div>
         {
+          state.cart.length === 0 ?
+<p>No item in the cart available at the moment</p>
+          :
           state.cart.map(val=><CartItem cartItem={val} key={val.item.id}/>)
         }
       </div>
