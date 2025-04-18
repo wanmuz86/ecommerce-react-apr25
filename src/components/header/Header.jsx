@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink,Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -35,6 +35,9 @@ const Header = () => {
                             </li>
                     
                         </ul>
+                    </div>
+                    <div className="d-flex">
+                        <NavLink className='me-2 btn btn-outline-light' to="/cart"><i class="bi bi-cart"></i> ( 0 )</NavLink>
                     </div>
                 </div>
             </nav>
