@@ -11,10 +11,44 @@ const CartProvider = ({children}) => {
         // We will define all the actions on the state
         switch (action.type){
             case 'ADD_ITEM':
+                     // if item already exists in the cart, add the quantity by 1
+                     // Find the index of the given item id, if exists , I will get the index, if not i will get -1
+                const existingItemIndexAdd = state.cart.findIndex(item => item.item.id === action.payload.item.id);
+
+                if (existingItemIndexAdd !== -1){
+                    // Array Spread operator, copy in updatedCart
+                    const updatedCart = [...state.cart];
+                    updatedCart[existingItemIndexAdd].quantity++ ; // Increment the quantity of the item
+                    // Update the state with the new item quantity
+                    return {
+                        ...state,
+                        cart:updatedCart 
+                    }
+
+                }
+                else {
+
+                // if not, add it in the cart, and set the quantity to 1
+                return {
+                    ...state,
+                    cart:[...cart,action.payload]
+                }
+                }
+           
+
 
             case 'REMOVE_ITEM':
 
+            // if item is already in the cart
+             // if the item quantity is > 1, remove the quantity by1
+
+             // if it is equal to 1 , remove the cart
+
             case 'EMPTY_CART':
+                 // Modify the start by updating the cart to []
+            return {... state, 
+                cart:[]
+            } 
 
 
             default:
