@@ -8,6 +8,9 @@ import ShopCategory from './pages/shop-category/ShopCategory.jsx'
 import Product from './pages/product/Product.jsx'
 import Cart from './pages/cart/Cart.jsx'
 import { RouterProvider } from 'react-router'
+import banner1 from './assets/banner1.jpg'
+import banner2 from './assets/banner2.jpg'
+import banner3 from './assets/banner3.jpg'
 
 const routes = createBrowserRouter([
   {
@@ -20,19 +23,19 @@ const routes = createBrowserRouter([
       },
       {
         path:"categories/electronics",
-        element:<ShopCategory/>
+        element:<ShopCategory title="Electronic" subtitle="Nice electronics items" banner={banner1}/>
       },
       {
         path:"categories/men's clothing",
-        element:<ShopCategory/>
+        element:<ShopCategory title="Men's clothing" subtitle="Selection for male" banner={banner2}/>
       },
       {
         path:"categories/women's clothing",
-        element:<ShopCategory/>
+        element:<ShopCategory title="Women's clothing" subtitle="Selection for women" banner={banner3}/>
       },
       {
         path:"categories/jewelery",
-        element:<ShopCategory/>
+        element:<ShopCategory title="Jewelery" subtitle="Gold, silver and others" banner={banner2}/>
       },
       {
         path:"products/:id",

@@ -1,9 +1,12 @@
 import React from 'react'
 import './ShopCategory.css'
+import Banner from '../../components/banner/Banner'
 
-const ShopCategory = () => {
+const ShopCategory = ({title, subtitle, banner}) => {
   return (
-    <div>ShopCategory</div>
+    <div>
+        <Banner title={title} subtitle={subtitle} banner={banner}/>
+    </div>
   )
 }
 
