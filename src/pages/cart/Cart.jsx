@@ -1,16 +1,17 @@
 import React from 'react'
 import './Cart.css'
 import {useCart} from '../../context/CartContext.jsx'
+import CartItem from '../../components/cart-item/CartItem.jsx'
 const Cart = () => {
 
   const {state, dispatch} = useCart()
 
   return (
-    <div>
+    <div className='container my-3'>
       <h2>Your Cart</h2>
-      <div className="container">
+      <div>
         {
-          state.cart.map(val=><div><h2>{val.item.title} - {val.quantity}</h2></div>)
+          state.cart.map(val=><CartItem cartItem={val} key={val.item.id}/>)
         }
       </div>
     </div>
