@@ -1,8 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Card.css' // custom styles
+import { useCart } from '../../context/CartContext'
+import { useNavigate } from 'react-router-dom'
 
 const Card = ({ item }) => {
+    const {dispatch} = useCart()
+
+    const navigate = useNavigate()
+
+    const handleAddToCart = () => {
+        dispatch({type:'ADD_ITEM', payload:{item:item, quantity:1}})
+        navigate('/cart')
+    }
+
     return (
         <div className="card custom-card h-100 shadow-sm border-0">
             <div className="img-container">
@@ -16,7 +27,7 @@ const Card = ({ item }) => {
                     <Link to={`/products/${item.id}`} className="btn btn-outline-primary btn-sm w-50">
                         View
                     </Link>
-                    <button className="btn btn-primary btn-sm w-50">
+                    <button onClick={handleAddToCart} className="btn btn-primary btn-sm w-50">
                         Add to Cart
                     </button>
                 </div>

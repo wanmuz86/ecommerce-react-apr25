@@ -31,7 +31,7 @@ const CartProvider = ({ children }) => {
                     // if not, add it in the cart, and set the quantity to 1
                     return {
                         ...state,
-                        cart: [...cart, action.payload]
+                        cart: [...state.cart, action.payload]
                     }
                 }
 
@@ -73,6 +73,7 @@ const CartProvider = ({ children }) => {
         }
 
     }
+    // State to retrieve the state, dispatch to perform an action on the state
     const [state,dispatch] = useReducer(cartReducer, initialState)
 
 
