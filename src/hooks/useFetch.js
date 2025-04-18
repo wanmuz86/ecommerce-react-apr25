@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import axios from "axios";
+import axios from "axios"
 // a custom hook that can be called in any component, to create a reusable function/hook to call the API
 
 export const useFetch = (url)=> {
     const [data,setData] = useState(null)
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     
     // fetch the data when there is a change on the url

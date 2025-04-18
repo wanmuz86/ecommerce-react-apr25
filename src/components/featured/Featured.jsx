@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFetch } from '../../hooks/useFetch'
+import Card from '../card/Card'
 
 const Featured = () => {
 
@@ -14,11 +15,13 @@ const Featured = () => {
                 : loading ?
                     <p>Loading...</p>
                     :
-                    <ul>
+                    <div className='row'> 
                         {
-                            data && data.map(val => <li>{val.title}</li>)
+                            data && data.map(val => <div className='col-3 gap-1 mb-1' key={val.id}>
+                                <Card item={val}/>
+                            </div>)
                         }
-                    </ul>
+                   </div>
             }
         </div>
     )
