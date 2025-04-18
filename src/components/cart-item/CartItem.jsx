@@ -13,7 +13,7 @@ const CartItem = ({ cartItem }) => {
     const handleAdd = () => {
         dispatch({type:'ADD_ITEM',payload:cartItem})
     }
-    
+
   return (
     <div className="card cart-item-card mb-3 shadow-sm">
       <div className="row g-3 align-items-center p-3">
@@ -22,7 +22,7 @@ const CartItem = ({ cartItem }) => {
         </div>
         <div className="col-8 col-md-9">
           <h5 className="mb-1 text-truncate" title={cartItem.item.title}>{cartItem.item.title}</h5>
-          <p className="text-muted mb-2">USD {cartItem.item.price}</p>
+          <p className="text-muted mb-2">USD {cartItem.item.price.toFixed(2)}</p>
           <div className="d-flex align-items-center gap-2">
             <button className="btn btn-outline-secondary btn-sm"
             onClick={handleRemove}>-</button>

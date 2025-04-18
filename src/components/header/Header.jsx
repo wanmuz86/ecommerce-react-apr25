@@ -1,7 +1,9 @@
 import React from 'react'
 import { NavLink,Link } from 'react-router-dom'
-
+import { useCart } from '../../context/CartContext'
 const Header = () => {
+
+    const {totalItemInCart} = useCart();
     return (
         <div>
             {/* background red, text yellow, center text, padding 5 */}
@@ -37,7 +39,7 @@ const Header = () => {
                         </ul>
                     </div>
                     <div className="d-flex">
-                        <NavLink className='me-2 btn btn-outline-light' to="/cart"><i className="bi bi-cart"></i> ( 0 )</NavLink>
+                        <NavLink className='me-2 btn btn-outline-light' to="/cart"><i className="bi bi-cart"></i> ( {totalItemInCart} )</NavLink>
                     </div>
                 </div>
             </nav>
